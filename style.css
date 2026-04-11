@@ -1,0 +1,142 @@
+:root {
+    --primary: #112837;    /* Seu azul escuro */
+    --bg-light: #f6f6f6;   /* Seu cinza claro */
+    --border: #d1d1d1;
+    --text-main: #333;
+}
+
+body { 
+    margin: 0; 
+    display: flex; 
+    background: #cccccc; 
+    font-family: 'Inter', sans-serif; 
+    height: 100vh; 
+}
+
+.toolbar { 
+    width: 360px; 
+    background: var(--bg-light); 
+    display: flex; 
+    flex-direction: column; 
+    border-right: 1px solid var(--border);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+}
+
+/* Cabeçalho Estilo Profissional */
+.header-namb {
+    background: var(--primary);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.logo-namb {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.titulos h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.titulos p {
+    margin: 0;
+    font-size: 9px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+}
+
+.tool-group label, .label-set {
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--primary);
+    margin-bottom: 6px;
+    display: block;
+}
+
+input, select { 
+    padding: 12px; 
+    background: #fff; 
+    border: 1px solid var(--border); 
+    border-radius: 4px; 
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Botoes de Risco */
+#areaBotoesRisco { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 6px; 
+}
+
+.risk-btn { 
+    padding: 10px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    font-size: 10px;
+    color: #fff;
+    transition: transform 0.1s;
+}
+
+.risk-btn.active { outline: 3px solid #000; outline-offset: -3px; }
+
+/* Botões de Ação */
+.acoes { display: flex; flex-direction: column; gap: 8px; }
+.dupla-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.btn { 
+    padding: 14px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    font-size: 12px;
+    transition: filter 0.2s;
+}
+
+.fechar { background: var(--primary); color: white; }
+.desfazer { background: #7f8c8d; color: white; }
+.limpar { background: #c0392b; color: white; }
+.na { background: #fff; border: 2px solid var(--primary); color: var(--primary); width: 100%; margin-top: 5px; }
+
+.download { 
+    background: #27ae60; 
+    color: white; 
+    margin-top: auto;
+    font-size: 14px;
+}
+
+.btn:hover { filter: brightness(1.2); }
+
+.canvas-container { 
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: #1a1a1a; 
+    padding: 20px;
+}
+
+canvas { 
+    background: white; 
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NAMB - Previsor Severe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="toolbar">
+        <div class="header-namb">
+            <img src="NAAMB_LOGO.png" alt="Logo NAAMB" class="logo-namb">
+            <div class="titulos">
+                <h1>NAMB</h1>
+                <p>Núcleo de análise amadora de meteorologia brasileiro</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="tool-group">
+                <label>DATA DA PREVISÃO</label>
+                <input type="text" id="inputData" placeholder="Ex: 11/04/2026" oninput="desenharTudo()">
+            </div>
+
+            <div class="tool-group">
+                <label>TIPO DE RISCO</label>
+                <select id="mapSelect" onchange="trocarTipoPrevisao(this.value)">
+                    <option value="geral">Riscos Gerais</option>
+                    <option value="tornado">Tornado</option>
+                    <option value="granizo">Granizo</option>
+                    <option value="vento">Vento</option>
+                </select>
+            </div>
+
+            <div id="areaBotaoNA" style="display:none;">
+                <button id="btnNA" class="btn na" onclick="ativarNA()">ATIVAR MAPA N/A</button>
+            </div>
+
+            <label class="label-set">NÍVEIS DE RISCO</label>
+            <div id="areaBotoesRisco"></div>
+
+            <div class="acoes">
+                <button class="btn fechar" onclick="fecharPoligono()">PREENCHER ÁREA</button>
+                <div class="dupla-botoes">
+                    <button class="btn desfazer" onclick="desfazerPonto()">DESFAZER</button>
+                    <button class="btn limpar" onclick="limparMapa()">LIMPAR</button>
+                </div>
+            </div>
+
+            <button class="btn download" onclick="downloadMapa()">SALVAR PREVISÃO (PNG)</button>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="mapCanvas"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
