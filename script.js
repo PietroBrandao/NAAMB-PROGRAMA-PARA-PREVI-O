@@ -127,7 +127,7 @@ function desenharTudo() {
 function desenharForma(pontos, cor, fechada) {
     if (pontos.length < 2) return;
     ctx.beginPath();
-    ctx.lineWidth = 5 / scale;
+    ctx.lineWidth = 3 / scale;
     ctx.lineJoin = "round"; ctx.lineCap = "round";
     ctx.moveTo(pontos[0].x, pontos[0].y);
     for (let i = 0; i < pontos.length - 1; i++) {
