@@ -1,142 +1,212 @@
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 20px;
+    background: #e9e9e9;
+}
+
+.logo-topo {
+    width: 70px;
+}
+
+.textos-topo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #112837;
+}
+
+.textos-topo p {
+    margin: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #112837;
+}
+
 :root {
-    --primary: #112837;    /* Seu azul escuro */
-    --bg-light: #f6f6f6;   /* Seu cinza claro */
-    --border: #d1d1d1;
-    --text-main: #333;
+    --primary: #112837;
+    --bg: #121212;
+    --panel: #1e1e1e;
+    --border: #333333;
 }
 
 body { 
     margin: 0; 
-    display: flex; 
-    background: #cccccc; 
+    background: var(--bg); 
     font-family: 'Inter', sans-serif; 
-    height: 100vh; 
 }
 
-.toolbar { 
-    width: 360px; 
-    background: var(--bg-light); 
-    display: flex; 
-    flex-direction: column; 
-    border-right: 1px solid var(--border);
-    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
-}
-
-/* Cabeçalho Estilo Profissional */
-.header-namb {
-    background: var(--primary);
-    padding: 20px;
+/* TOP HEADER */
+.top-header {
+    background: var(--bg);
+    height: 70px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 15px;
     color: white;
 }
 
+.header-namb {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .logo-namb {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
+    width: 60px;
 }
 
 .titulos h1 {
     margin: 0;
-    font-size: 22px;
-    letter-spacing: 1px;
+    font-size: 20px;
 }
 
 .titulos p {
     margin: 0;
-    font-size: 9px;
+    font-size: 10px;
     text-transform: uppercase;
-    opacity: 0.9;
-    line-height: 1.2;
-    font-weight: 400;
 }
 
-.content {
-    padding: 20px;
+/* BOTTOM CONTAINER */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 70px);
+    gap: 25px;
+    padding: 15px 0;
+}
+
+/* SIDEBAR */
+.toolbar { 
+    width: 320px; 
+    max-height: 75vh;
+    overflow-y: auto;
+    background: var(--panel); 
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    flex: 1;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
 }
 
-.tool-group label, .label-set {
-    font-weight: 700;
+/* SAVE CONTAINER */
+.save-container {
+    width: 200px;
+    background: var(--panel);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+.save-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* INPUTS */
+label {
     font-size: 11px;
-    color: var(--primary);
-    margin-bottom: 6px;
-    display: block;
+    font-weight: 700;
+    color: #cccccc;
 }
 
 input, select { 
-    padding: 12px; 
-    background: #fff; 
+    padding: 10px; 
     border: 1px solid var(--border); 
-    border-radius: 4px; 
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    width: 100%;
+    border-radius: 6px; 
+    font-family: 'Inter';
+    background: var(--panel);
+    color: white;
 }
 
-/* Botoes de Risco */
+/* 🔥 BOTÕES DE RISCO (AGORA BONITOS) */
 #areaBotoesRisco { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 6px; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .risk-btn { 
-    padding: 10px; 
+    padding: 12px 16px; 
     border: none; 
-    border-radius: 4px; 
+    border-radius: 999px; /* 🔥 deixa redondo */
     cursor: pointer; 
-    font-weight: 700; 
-    font-size: 10px;
+    font-weight: 600; 
+    font-size: 12px;
     color: #fff;
-    transition: transform 0.1s;
+
+    transition: all 0.2s ease;
 }
 
-.risk-btn.active { outline: 3px solid #000; outline-offset: -3px; }
+/* BOTÃO ATIVO */
+.risk-btn.active { 
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
+}
 
-/* Botões de Ação */
-.acoes { display: flex; flex-direction: column; gap: 8px; }
-.dupla-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+/* HOVER */
+.risk-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
 
+/* BOTÕES GERAIS */
 .btn { 
-    padding: 14px; 
+    padding: 12px; 
     border: none; 
-    border-radius: 4px; 
+    border-radius: 8px; 
     cursor: pointer; 
-    font-weight: 700; 
+    font-weight: 600;
     font-size: 12px;
-    transition: filter 0.2s;
 }
 
 .fechar { background: var(--primary); color: white; }
 .desfazer { background: #7f8c8d; color: white; }
 .limpar { background: #c0392b; color: white; }
-.na { background: #fff; border: 2px solid var(--primary); color: var(--primary); width: 100%; margin-top: 5px; }
 
 .download { 
     background: #27ae60; 
     color: white; 
-    margin-top: auto;
-    font-size: 14px;
 }
 
-.btn:hover { filter: brightness(1.2); }
+.btn:hover { 
+    filter: brightness(1.1); 
+}
 
-.canvas-container { 
-    flex: 1; 
+.dupla-botoes { 
     display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    background: #1a1a1a; 
-    padding: 20px;
+    gap: 12px; 
+}
+
+/* 🔥 MAPA */
+/* 🔥 MAPA - Ajustado para o Zoom */
+/* 🔥 MOLDURA DO MAPA (VIEWPORT) */
+.canvas-container { 
+    /* Removemos o width: 600px e o height: 500px fixos */
+    max-width: 40vw; /* Muito reduzido */
+    max-height: 110vh; 
+    overflow: hidden; 
+    background: var(--bg); /* Fundo escuro */
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    
+    /* Faz o container se ajustar ao tamanho do Canvas */
+    display: inline-block; 
+    line-height: 0; /* Remove pequenos espaços fantasmas embaixo da imagem */
 }
 
 canvas { 
     background: white; 
-    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    cursor: crosshair;
+    display: block;
+    /* O JS vai controlar o tamanho real, mas aqui garantimos que ele caiba no container */
+    max-width: 100%; 
+    height: auto;
+    transform-origin: 0 0;
 }
