@@ -2,22 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>NAMB - Previsor Severe</title>
+    <title>NAAMB - Programa para criação de previsões</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="toolbar">
-        <div class="header-namb">
-            <img src="NAAMB_LOGO.png" alt="Logo NAAMB" class="logo-namb">
-            <div class="titulos">
-                <h1>NAMB</h1>
-                <p>Núcleo de análise amadora de meteorologia brasileiro</p>
-            </div>
-        </div>
 
+<div class="top-header">
+    <div class="header-namb">
+        <img src="NAAMB_LOGO.png" alt="Logo NAAMB" class="logo-namb">
+        <div class="titulos">
+            <h1>NAAMB</h1>
+            <p>Programa para criação de previsões meteorológicas amadoras do NAAMB</p>
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+
+    <div class="toolbar">      
         <div class="content">
             <div class="tool-group">
                 <label>DATA DA PREVISÃO</label>
@@ -48,14 +53,21 @@
                     <button class="btn limpar" onclick="limparMapa()">LIMPAR</button>
                 </div>
             </div>
-
-            <button class="btn download" onclick="downloadMapa()">SALVAR PREVISÃO (PNG)</button>
         </div>
     </div>
 
     <div class="canvas-container">
         <canvas id="mapCanvas"></canvas>
     </div>
+
+    <div class="save-container">
+        <div class="save-buttons">
+            <button class="btn save-current" onclick="downloadMapa()">SALVAR PREVISÃO ATUAL</button>
+            <button class="btn save-all" onclick="downloadTodas()">SALVAR TODAS</button>
+        </div>
+    </div>
+
+</div>
 
     <script src="script.js"></script>
 </body>
