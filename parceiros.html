@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAAMB - Parceiros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-parceiros">
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav id="sideMenu" class="sidebar-nav">
+        <div class="menu-header">
+            <img src="NAAMB_LOGO.png" alt="Logo NAAMB">
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="editor.html">Criação de Mapas</a></li>
+            <li><a href="parceiros.html" class="active">Parceiros</a></li>
+        </ul>
+        <div class="menu-footer">
+            <p>NAAMB v2.1</p>
+        </div>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <main class="container-parceiros">
+        
+        <header class="parceiros-header">
+            <h1>Parceiros Oficiais</h1>
+            <p>Instituições e núcleos que colaboram com o desenvolvimento da meteorologia no Brasil.</p>
+        </header>
+
+        <section class="grid-parceiros">
+            
+            <div class="card-parceiro">
+                <div class="logo-area">
+                    <img src="NEVOSLOGO.png" alt="Logo NEVOS">
+                </div>
+                <div class="info-area">
+                    <div class="top-info">
+                        <h3>NEVOS</h3>
+                        <span class="tag">Parceiro Oficial</span>
+                    </div>
+                    <p class="sigla-extenso">Núcleo de Estudos de Vórtices e Ocorrências Severas</p>
+                    <hr>
+                    <p class="descricao">
+                        É um Grupo de estudos de eventos rotacionarios (ciclones e tornados) e eventos severos. O grupo faz estudos frequentemente sobre ocorrências severas que ocorrem atualmente 
+                    </p>
+                </div>
+            </div>
+
+            </section>
+
+    </main>
+
+    <script src="menu.js"></script>
+</body>
+</html>

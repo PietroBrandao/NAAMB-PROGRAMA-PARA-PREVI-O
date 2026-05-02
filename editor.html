@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NAAMB - Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="editor-page">
+    <div class="menu-icon" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <nav id="sideMenu" class="sidebar-nav">
+        <div class="menu-header"><img src="NAAMB_LOGO.png" class="logo-menu"></div>
+        <ul class="menu-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="editor.html" class="active">Criação</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
+        </ul>
+    <div class="menu-footer">
+        <p>NAAMB v2.1</p>
+    </div>    
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="main-container">
+        <header class="editor-header">
+            <img src="NAAMB_LOGO.png" class="logo-topo">
+            <div class="header-text">
+                <h1>Criação de Mapas</h1>
+            </div>
+        </header>
+
+        <div class="editor-grid">
+            <aside class="card-painel side-controls">
+                <div class="input-group">
+                    <label>DATA DA PREVISÃO</label>
+                    <input type="text" id="inputData" placeholder="Ex: 25/06/2029" oninput="desenharTudo()">
+                </div>
+
+                <div class="input-group">
+                    <label>TIPO DE FENÔMENO</label>
+                    <select id="mapSelect" onchange="atualizarInterface(this.value)">
+                        <option value="geral">Riscos Gerais</option>
+                        <option value="tornado">Tornado</option>
+                        <option value="granizo">Granizo</option>
+                        <option value="vento">Vento</option>
+                        <option value="downburst">Downburst</option>
+                    </select>
+                </div>
+
+                <button id="btnNA" class="btn-na" style="display:none;" onclick="ativarNA()">
+                    MAPA SEM RISCO (N/A)
+                </button>
+
+                <div class="risk-area">
+                    <label>NÍVEIS DE RISCO</label>
+                    <div id="areaBotoesRisco" class="grid-riscos"></div>
+                </div>
+
+                <div class="drawing-tools">
+                    <button class="btn-primary" onclick="fecharPoligono()">FECHAR ÁREA</button>
+                    <div class="dual-btns">
+                        <button class="btn-secondary" onclick="desfazerPonto()">DESFAZER</button>
+                        <button class="btn-danger" onclick="limparMapa()">LIMPAR</button>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="canvas-card">
+                <canvas id="mapCanvas"></canvas>
+            </main>
+
+            <aside class="card-painel side-export">
+                <label>EXPORTAÇÃO</label>
+                <button class="btn-save" onclick="downloadMapa()">
+                    💾 SALVAR IMAGEM
+                </button>
+                <p class="export-hint">Exportação em PNG de alta qualidade.</p>
+            </aside>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="Canva_engine.js"></script>
+    <script src="menu.js"></script>
+    <script src="interacoes.js"></script>
+    <script src="download.js"></script>
+    <script>
+        // Lógica para o N/A sumir no Risco Geral
+        function atualizarInterface(valor) {
+            const btnNA = document.getElementById('btnNA');
+            // Se for 'geral', esconde. Se for qualquer outro, mostra.
+            btnNA.style.display = (valor === 'geral') ? 'none' : 'block';
+            trocarTipoPrevisao(valor); 
+        }
+    </script>
+</body>
+</html>

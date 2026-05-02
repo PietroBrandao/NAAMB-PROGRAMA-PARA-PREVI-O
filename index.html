@@ -2,74 +2,78 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>NAAMB - Programa para criação de previsões</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAAMB - Início</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-inicio">
 
-<div class="top-header">
-    <div class="header-namb">
-        <img src="NAAMB_LOGO.png" alt="Logo NAAMB" class="logo-namb">
-        <div class="titulos">
-            <h1>NAAMB</h1>
-            <p>Programa para criação de previsões meteorológicas amadoras do NAAMB</p>
-        </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
     </div>
-</div>
 
-<div class="main-container">
+    <nav id="sideMenu" class="sidebar-nav">
+        <div class="menu-header">
+            <img src="NAAMB_LOGO.png" alt="Logo NAAMB">
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html" class="active">Página Inicial</a></li>
+            <li><a href="editor.html">Criação de Mapas</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
+        </ul>
+        <div class="menu-footer">
+            <p>NAAMB v2.1</p>
+        </div>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
 
-    <div class="toolbar">      
-        <div class="content">
-            <div class="tool-group">
-                <label>DATA DA PREVISÃO</label>
-                <input type="text" id="inputData" placeholder="Ex: 11/04/2026" oninput="desenharTudo()">
+    <main class="container-boas-vindas">
+        
+        <header class="hero-header">
+            <img src="NAAMB_LOGO.png" alt="NAAMB" class="logo-hero">
+            <div class="texto-boas-vindas">
+                <h1>Início</h1>
+                <p class="badge-analista">BEM-VINDO, ANALISTA</p>
+                <p class="subtitulo">
+                    Este é o programa especializado para a criação e padronização de mapas meteorológicos do NAAMB.
+                </p>
             </div>
+        </header>
 
-            <div class="tool-group">
-                <label>TIPO DE RISCO</label>
-                <select id="mapSelect" onchange="trocarTipoPrevisao(this.value)">
-                    <option value="geral">Riscos Gerais</option>
-                    <option value="tornado">Tornado</option>
-                    <option value="granizo">Granizo</option>
-                    <option value="vento">Vento</option>
-                    <option value="downburst">Downburst</option> </select>
-                </select>
-            </div>
+        <section class="tutorial-box">
+            <h2>Como criar seus mapas:</h2>
+            
+            <div class="tutorial-grid">
+                <div class="card-passo">
+                    <div class="numero">1</div>
+                    <h3>Acesse o Menu</h3>
+                    <p>Clique nas três barras no canto superior e selecione a aba <strong>Criação</strong>.</p>
+                </div>
 
-            <div id="areaBotaoNA" style="display:none;">
-                <button id="btnNA" class="btn na" onclick="ativarNA()">ATIVAR MAPA N/A</button>
-            </div>
+                <div class="card-passo">
+                    <div class="numero">2</div>
+                    <h3>Defina os Riscos</h3>
+                    <p>Escolha o tipo de fenômeno e use o mouse para traçar os polígonos no mapa.</p>
+                </div>
 
-            <label class="label-set">NÍVEIS DE RISCO</label>
-            <div id="areaBotoesRisco"></div>
-
-            <div class="acoes">
-                <button class="btn fechar" onclick="fecharPoligono()">PREENCHER ÁREA</button>
-                <div class="dupla-botoes">
-                    <button class="btn desfazer" onclick="desfazerPonto()">DESFAZER</button>
-                    <button class="btn limpar" onclick="limparMapa()">LIMPAR</button>
+                <div class="card-passo">
+                    <div class="numero">3</div>
+                    <h3>Salve o Mapa</h3>
+                    <p>Confira a data e clique em <strong>Salvar Previsão</strong> para exportar o PNG.</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="canvas-container">
-        <canvas id="mapCanvas"></canvas>
-    </div>
+        <footer class="inicio-footer">
+            <p>Se você já sabe como utilizar a ferramenta:</p>
+            <a href="editor.html" class="btn-pular">IR PARA O MENU DE CRIAÇÃO</a>
+        </footer>
 
-    <div class="save-container">
-        <div class="save-buttons">
-            <button class="btn save-current" onclick="downloadMapa()">SALVAR PREVISÃO ATUAL</button>
-            <button class="btn save-all" onclick="downloadTodas()">SALVAR TODAS</button>
-        </div>
-    </div>
+    </main>
 
-</div>
-
-    <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
