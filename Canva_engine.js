@@ -53,7 +53,7 @@ function atualizarMapaNA() {
 
     switch (tipo) {
         case "tornado":   mapaNA.src = "Risco_Tornado_NA.png"; break;
-        case "granizo":   mapaNA.src = "Risco_GranizoNA.png"; break;
+        case "granizo":   mapaNA.src = "Risco_granizoNA.png"; break;
         case "vento":     mapaNA.src = "Risco_VentoNA.png"; break;
         case "downburst": mapaNA.src = "Mapa_DownburstNA.png"; break;
         default:
